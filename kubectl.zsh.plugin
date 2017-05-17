@@ -1,0 +1,25 @@
+# Autocompletion and aliases for kubectl, the command line interface for Kubernetes
+#
+# Author: https://github.com/mattbangert
+
+if [ $commands[kubectl] ]; then
+  source <(kubectl completion zsh)
+fi
+
+# Utility
+alias k=kubectl
+
+# Get commands
+alias kg='kubectl get'
+alias kgp='kubectl get pods'
+alias kgns='kubectl get namespaces'
+alias kgall='kubectl get ingress,service,deployment,pod'
+
+#Configuration commands
+alias kuc='kubectl config use-context'
+alias ksc='kubectl config set-context "$(kubectl config current-context)"'
+alias kns='ksc --namespace'
+
+# Networking
+alias kpf='kubectl port-forward '
+alias kp='kubectl proxy'
